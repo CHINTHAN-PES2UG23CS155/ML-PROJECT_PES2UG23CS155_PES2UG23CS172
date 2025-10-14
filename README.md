@@ -15,9 +15,9 @@
 - chinthan k
 - dhruv hegde
 
-**Collaborators/Contributors:**
-- [Contributor Name] - Feature Engineering
-- [Contributor Name] - Model Optimization
+**Contributors:**
+- chinthan k - Feature Engineering
+- dhruv hegde - Model Optimization
 
 **Course/Organization:** PES UNIVERSITY
 
