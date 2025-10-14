@@ -21,7 +21,7 @@
 
 **Course/Organization:** PES UNIVERSITY
 
-**Project Duration:** [Start Date] - [End Date]
+**Project Duration:** 7-10-2025 - 14-10-2025
 
 **Project Type:** Academic Research Project 
 
@@ -758,6 +758,6 @@ Want to learn more about audio classification and deep learning?
 
 ---
 
-**Made with ❤️ and 🎵 by [Your Team Name]**
+**Made with ❤️ and 🎵 by team 31**
 
-*Last Updated: [Date]*
+*Last Updated: 14-10-2025*
