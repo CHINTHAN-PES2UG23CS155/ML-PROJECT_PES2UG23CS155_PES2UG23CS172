@@ -707,74 +707,11 @@ graph TD
 - [ ] Include artist and mood classification
 
 ---
-
-## 🤝 Contributing
-
-We welcome contributions! Here's how you can help:
-
-### Ways to Contribute
-1. **Bug Reports:** Found an issue? Open an issue on GitHub
-2. **Feature Requests:** Have an idea? Submit a feature request
-3. **Code Contributions:** Submit pull requests for improvements
-4. **Documentation:** Improve README or add tutorials
-5. **Experiments:** Try new models and share results
-
-### Contribution Guidelines
-
-1. **Fork the repository**
-2. **Create a feature branch**
-   ```bash
-   git checkout -b feature/YourAmazingFeature
-   ```
-3. **Make your changes**
-   - Follow PEP 8 style guidelines
-   - Add comments and docstrings
-   - Update README if needed
-4. **Test your changes**
-5. **Commit with clear messages**
-   ```bash
-   git commit -m "Add: Your feature description"
-   ```
-6. **Push to your fork**
-   ```bash
-   git push origin feature/YourAmazingFeature
-   ```
-7. **Open a Pull Request**
-
----
-
-## 🙏 Acknowledgments
-
-### Dataset & Resources
-- **George Tzanetakis & Perry Cook** - GTZAN Dataset creators
-- **Kaggle** - Platform and GPU resources
-- **Librosa Team** - Excellent audio processing library
-
-### Libraries & Tools
-- **TensorFlow/Keras** - Deep learning framework
-- **Scikit-learn** - Machine learning algorithms
-- **NumPy & Pandas** - Data manipulation
-- **Matplotlib & Seaborn** - Visualization
-
-### Research & Community
-- Music Information Retrieval (MIR) community
-- Kaggle community for discussions and insights
-- **[Your Supervisor/Mentor]** - For guidance and support
-
 ### References
 - Tzanetakis, G., & Cook, P. (2002). Musical genre classification of audio signals. IEEE Transactions on Speech and Audio Processing.
 - McFee, B., et al. (2015). librosa: Audio and Music Signal Analysis in Python.
 
 ---
-
-## 📧 Contact & Support
-
-**Project Maintainer:** chinthan k
-
-- **Email:** chink2425@gmail.com
-- **GitHub:** [@yourusername](https://github.com/yourusername)
-- **Kaggle:** [@yourkaggleusername](https://www.kaggle.com/yourkaggleusername)
-- **LinkedIn:** [Your LinkedIn](https://linkedin.com/in/yourprofile)
 
 **Project Links:**
 - **GitHub Repository:** [https://github.com/yourusername/music-genre-classification](https://github.com/yourusername/music-genre-classification)
@@ -801,14 +738,6 @@ Want to learn more about audio classification and deep learning?
 - [TensorFlow Audio Recognition Tutorial](https://www.tensorflow.org/tutorials/audio/simple_audio)
 - [Music Information Retrieval Basics](https://www.coursera.org/learn/audio-signal-processing)
 - [Deep Learning for Audio](https://github.com/ybayle/awesome-deep-learning-music)
-
----
-
-## 🌟 Star History
-
-If you find this project helpful, please consider giving it a star! ⭐
-
-[![Star History Chart](https://api.star-history.com/svg?repos=yourusername/music-genre-classification&type=Date)](https://star-history.com/#yourusername/music-genre-classification&Date)
 
 ---
 
