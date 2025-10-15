@@ -16,8 +16,8 @@
 - dhruv hegde
 
 **Contributors:**
-- chinthan k - Feature Engineering
-- dhruv hegde - Model Optimization
+- chinthan k - Feature Engineering,model training and optimization
+- dhruv hegde - feature extraction,training,Model Optimization
 
 **Course/Organization:** PES UNIVERSITY
 
