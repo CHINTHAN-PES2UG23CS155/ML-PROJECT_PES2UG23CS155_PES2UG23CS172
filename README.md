@@ -19,7 +19,7 @@
 - chinthan k - Feature Engineering,model training and optimization
 - dhruv hegde - feature extraction,training,Model Optimization
 
-**Course/Organization:** PES UNIVERSITY
+**Organization:** PES UNIVERSITY
 
 **Project Duration:** 7-10-2025 - 14-10-2025
 
