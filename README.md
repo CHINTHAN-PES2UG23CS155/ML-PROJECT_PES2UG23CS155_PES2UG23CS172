@@ -678,80 +678,313 @@ graph TD
    - Document misclassification patterns
 
 ---
+# Part 2: Streamlit Application (Production) - CONTINUED
 
-## 📈 Future Improvements
+### 🚀 Installation & Running
 
-### Immediate Enhancements
-- [ ] Implement data augmentation (time stretching, pitch shifting, adding noise)
-- [ ] Hyperparameter optimization using GridSearchCV or Optuna
-- [ ] Ensemble models combining CNN + LSTM predictions
-- [ ] Add more audio features (spectral contrast, tonnetz)
+#### Prerequisites
 
-### Advanced Features
-- [ ] Transfer learning with VGGish or YAMNet pre-trained models
-- [ ] Attention mechanisms in neural networks
-- [ ] Real-time genre prediction from audio streams
-- [ ] Multi-label classification for genre fusion tracks
-- [ ] Explainability using LIME or SHAP
+**System Requirements:**
+- Python 3.8 or higher
+- 4GB RAM minimum (8GB recommended)
+- 500MB free disk space
+- ffmpeg installed (for audio processing)
 
-### Deployment
-- [ ] Create REST API using FastAPI or Flask
-- [ ] Build web interface with Streamlit or Gradio
-- [ ] Mobile app development
-- [ ] Model quantization for edge deployment
-
-### Dataset Expansion
-- [ ] Include additional datasets (FMA, Million Song Dataset)
-- [ ] Expand to 30+ genres
-- [ ] Handle longer audio tracks (full songs)
-- [ ] Include artist and mood classification
-
----
-### References
-- Tzanetakis, G., & Cook, P. (2002). Musical genre classification of audio signals. IEEE Transactions on Speech and Audio Processing.
-- McFee, B., et al. (2015). librosa: Audio and Music Signal Analysis in Python.
+**Required Libraries:**
+```bash
+tensorflow
+librosa
+streamlit
+numpy
+pandas
+soundfile
+joblib
+```
 
 ---
 
-**Project Links:**
-- **GitHub Repository:** [https://github.com/yourusername/music-genre-classification](https://github.com/yourusername/music-genre-classification)
-- **Kaggle Notebook:** [https://www.kaggle.com/yourusername/music-genre-classification](https://www.kaggle.com/yourusername/music-genre-classification)
+### 📥 Installation Steps
 
-For bug reports and feature requests, please [open an issue](https://github.com/yourusername/music-genre-classification/issues).
+#### Step 1: Clone the Repository
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/music-genre-classification.git
+
+# Navigate to project directory
+cd music-genre-classification
+```
+
+#### Step 2: Create Virtual Environment
+
+**For Windows:**
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+**For macOS/Linux:**
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+#### Step 3: Install Dependencies
+
+```bash
+# Upgrade pip
+pip install --upgrade pip
+
+# Install all required packages
+pip install -r requirements.txt
+```
+
+**Manual installation (if requirements.txt not available):**
+```bash
+pip install tensorflow librosa streamlit numpy pandas soundfile joblib
+```
+
+#### Step 4: Install ffmpeg
+
+**Windows:**
+- Download from [ffmpeg.org](https://ffmpeg.org/download.html)
+- Extract and add to system PATH
+
+**macOS:**
+```bash
+brew install ffmpeg
+```
+
+**Linux (Ubuntu/Debian):**
+```bash
+sudo apt-get update
+sudo apt-get install ffmpeg
+```
+
+**Verify installation:**
+```bash
+ffmpeg -version
+```
 
 ---
 
-## 📚 Additional Resources
+### 📁 Project Structure
 
-- **[Research Paper/Report](link-to-paper.pdf)** - Detailed analysis and findings
-- **[Presentation Slides](link-to-slides.pdf)** - Project overview
-- **[Demo Video](link-to-youtube)** - Walkthrough and results
-- **[Blog Post](link-to-blog)** - Behind the scenes
-
----
-
-## 🎓 Learning Resources
-
-Want to learn more about audio classification and deep learning?
-
-- [Librosa Documentation](https://librosa.org/doc/latest/index.html)
-- [TensorFlow Audio Recognition Tutorial](https://www.tensorflow.org/tutorials/audio/simple_audio)
-- [Music Information Retrieval Basics](https://www.coursera.org/learn/audio-signal-processing)
-- [Deep Learning for Audio](https://github.com/ybayle/awesome-deep-learning-music)
-
----
-
-## 📊 Project Statistics
-
-- **Total Audio Files Processed:** 1,000 tracks
-- **Total Features Extracted:** 51 features per track
-- **Total Training Samples:** 10,000 (with segmentation)
-- **Models Implemented:** 6 different architectures
-- **Best Model Accuracy:** 88.7%
-- **Training Time (all models):** ~45-60 minutes with GPU
+```
+music-genre-classification/
+│
+├── cnn_model.h5                      # Trained CNN model (88.7% accuracy)
+├── extracted_features.csv            # Pre-extracted audio features dataset
+├── new_modeui.py                     # Streamlit UI implementation
+├── train_model.py                    # Model training script
+├── requirements.txt                  # Python dependencies
+├── README.md                         # Project documentation
+├── LICENSE                           # MIT License
+│
+└── data/
+    └── audio/                        # Audio files directory (for testing)
+        ├── blues_sample.wav
+        ├── classical_sample.wav
+        └── ...
+```
 
 ---
 
+### 🎬 Running the Application
+
+#### Quick Start
+
+```bash
+# Navigate to project directory
+cd music-genre-classification
+
+# Run the Streamlit application
+streamlit run new_modeui.py
+```
+
+The application will automatically open in your default web browser at `http://localhost:8501`
+
+#### Alternative Port
+
+If port 8501 is already in use:
+```bash
+streamlit run new_modeui.py --server.port 8502
+```
+
+#### Run in Development Mode
+
+For auto-reload on code changes:
+```bash
+streamlit run new_modeui.py --server.runOnSave true
+```
+
+#### Run on Network
+
+To access from other devices on your network:
+```bash
+streamlit run new_modeui.py --server.address 0.0.0.0
+```
+
+---
+
+### 📖 Usage Guide
+
+#### Step 1: Launch the Application
+
+After running the command, you'll see:
+```
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.x.x:8501
+```
+
+The web interface will display:
+- Project title and description
+- File upload widget
+- Genre information cards
+
+#### Step 2: Upload an Audio File
+
+**Supported Formats:**
+- `.wav` (recommended - faster processing)
+- `.mp3` (widely supported)
+- Other formats supported by librosa
+
+**Upload Methods:**
+1. Click the "Browse files" button
+2. Select your audio file from your computer
+3. Or drag-and-drop the file into the upload area
+
+**File Recommendations:**
+- **Duration:** 30 seconds (matches training data for best accuracy)
+- **Quality:** Good audio quality recommended
+- **Size:** Up to 10MB
+- **Format:** WAV format preferred for faster processing
+
+#### Step 3: View Prediction Results
+
+Once uploaded, the app automatically processes the file and displays:
+
+**1. Audio Player**
+- Listen to your uploaded track
+- Verify the file uploaded correctly
+
+**2. Predicted Genre**
+- Large, prominent display of the predicted genre
+- Example: "ROCK", "CLASSICAL", "JAZZ"
+
+**3. Confidence Score**
+- Percentage indicating model's confidence
+- Example: "92.3% confidence"
+
+**4. Probability Distribution Chart**
+- Interactive bar chart showing probabilities for all 10 genres
+- Visual representation of how confident the model is about each genre
+- Color-coded for easy interpretation
+
+**Example Output:**
+```
+🎵 Predicted Genre: ROCK
+Confidence: 92.3%
+
+Probability Distribution:
+Rock:      ████████████████████ 92.3%
+Metal:     ██                    4.2%
+Pop:       █                     1.8%
+Blues:     █                     0.9%
+Classical:                       0.4%
+Country:                         0.2%
+Disco:                           0.1%
+Hip-Hop:                         0.1%
+Jazz:                            0.0%
+Reggae:                          0.0%
+```
+
+#### Step 4: Interpret Results
+
+**High Confidence (>80%):**
+- ✅ Strong prediction
+- Model is very confident about the genre
+- Clear genre characteristics detected
+
+**Medium Confidence (60-80%):**
+- ⚠️ Good prediction with some uncertainty
+- Track might have fusion elements
+- Consider secondary genre predictions
+
+**Low Confidence (<60%):**
+- ❌ Uncertain prediction
+- Track might be genre-bending or experimental
+- Poor audio quality may affect results
+- Consider the top 2-3 genre predictions
+
+#### Step 5: Try Multiple Files
+
+- Upload different audio files to compare predictions
+- Click "Browse files" again to upload a new track
+- Previous prediction will be automatically replaced
+- No need to refresh the page between uploads
+
+---
+
+### 🔍 Troubleshooting
+
+#### Common Issues and Solutions
+
+**1. Model File Not Found**
+```
+Error: Unable to load model from cnn_model.h5
+```
+**Solution:**
+```bash
+# Verify model file exists
+ls cnn_model.h5
+
+# If missing, retrain the model
+python train_model.py
+
+# Or download from releases
+```
+
+**2. Audio Processing Error**
+```
+Error: PySoundFile failed. Trying audioread instead.
+```
+**Solution:**
+- Install ffmpeg: Check installation with `ffmpeg -version`
+- Convert audio to WAV format first
+- Ensure file is not corrupted:
+```bash
+ffmpeg -i input.mp3 output.wav
+```
+
+**3. Import Error for Libraries**
+```
+ModuleNotFoundError: No module named 'librosa'
+```
+**Solution:**
+```bash
+# Reinstall dependencies
+pip install --upgrade librosa soundfile numpy
+```
+
+**4. Streamlit Not Opening**
+```
+Error: Address already in use
+```
+**Solution:**
+```bash
+# Use different port
+streamlit run new_modeui.py --server.port 8502
+
+# Or kill existing process (Windows)
+taskkill /F /IM streamlit.exe
+
+# Or kill existing process (Linux/Mac)
+pkill -f streamlit
+```
+---
 ## 🔖 Keywords
 
 `music-genre-classification` `machine-learning` `deep-learning` `audio-classification` `cnn` `lstm` `tensorflow` `keras` `scikit-learn` `librosa` `gtzan-dataset` `kaggle` `mfcc` `spectrogram` `audio-processing` `music-information-retrieval`
